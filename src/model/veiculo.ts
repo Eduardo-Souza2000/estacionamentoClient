@@ -1,7 +1,7 @@
-import { abstractentity } from "./abstractentity";
-import { modelo } from "./modelo";
-import { cor } from "./enum/cor";
-import { tipo } from "./enum/tipo";
+import { abstractentity } from "@/model/abstractentity";
+import { modelo } from "@/model/modelo";
+import { cor } from "@/model/enum/cor";
+import { tipo } from "@/model/enum/tipo";
 
 export class veiculo extends abstractentity{
     placa!: string;

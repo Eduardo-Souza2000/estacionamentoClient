@@ -1,6 +1,6 @@
-import { abstractentity } from "./abstractentity";
-import { veiculo } from "./veiculo";
-import { condutor } from "./condutor";
+import { abstractentity } from "@/model/abstractentity";
+import { veiculo } from "@/model/veiculo";
+import { condutor } from "@/model/condutor";
 
 export class movimentacao extends abstractentity{
     veiculo!: veiculo;

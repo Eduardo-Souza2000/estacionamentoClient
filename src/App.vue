@@ -1,21 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <router-link to="/listarmarca">Marca</router-link>
-
-  </nav>
-  <router-view/>
+  
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/listarmarca">Marca</router-link>
+    </nav>
+    <router-view/>
+  
 </template>
 
+
+
 <style lang="scss">
+
+
 // Variable overrides first
 $primary: #900;
 $enable-shadows: true;
 $prefix: "mo-";
 
+
+
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url();
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

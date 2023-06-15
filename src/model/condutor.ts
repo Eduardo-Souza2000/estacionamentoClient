@@ -1,4 +1,4 @@
-import { abstractentity } from "./abstractentity";
+import { abstractentity } from "@/model/abstractentity";
 
 export class condutor extends abstractentity{
 

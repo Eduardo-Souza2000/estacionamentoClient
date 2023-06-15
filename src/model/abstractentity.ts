@@ -1,4 +1,3 @@
-import { localeData } from "moment";
 
 export class abstractentity {
     id!: number;
