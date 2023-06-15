@@ -1,7 +1,5 @@
 <template >
-  <head>
-  <link rel="stylesheet">
-</head>
+
   <div class="container">
     <div class="d-flex justify-center align-items-center bg-dark">
       <h2 class="col-10 display-3 custom-text-color " >Listar Marcas</h2>
@@ -139,5 +137,10 @@
   background-color: rgb(128, 3, 3);
   color: #FFFFFF;
 }
+
+body {
+    background-color: black;
+    padding-top: 70px; /* ou qualquer valor que seja a altura da sua navbar */
+  }
 
 </style>

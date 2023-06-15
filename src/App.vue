@@ -1,11 +1,24 @@
 <template>
-  
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/listarmarca">Marca</router-link>
-    </nav>
-    <router-view/>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+    
+    <ul class="nav nav-pills nav-fill">
+
+      <li class="nav-item">
+        <router-link to="/" class="nav-link">Home</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="/about" class="nav-link">About</router-link>      
+      </li>
+      <li class="nav-item">
+        <router-link to="/listarmarca" class="nav-link">Marca</router-link>
+      </li>
+     
+    </ul>
+  </nav>
+
+
+  <router-view/>
   
 </template>
 
@@ -45,4 +58,10 @@ nav {
     }
   }
 }
+
+.nav-link{
+  color: #FFFFFF;
+}
+
+
 </style>
