@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/listarmarca',
     name: 'listarmarca',
     component: () => import(/* webpackChunkName: "about" */ '../views/Marca/MarcaListaView.vue')
+  },
+  {
+    path: '/Adicionar',
+    name: 'Adicionar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue')
   }
 ]
 

@@ -4,7 +4,7 @@
     <div class="d-flex justify-center align-items-center bg-dark">
       <h2 class="col-10 display-3 custom-text-color " >Listar Marcas</h2>
       <div class="col-2">
-        <button type="button" class="btn btn-success  col-6" >Adicionar</button>
+        <router-link to="/Adicionar" class="btn btn-success  col-6" >Adicionar</router-link>
       </div>
     </div>
    
@@ -104,7 +104,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .custom-text-color{
   color: #FFFFFF;
 }
@@ -140,7 +140,7 @@
 
 body {
     background-color: black;
-    padding-top: 70px; /* ou qualquer valor que seja a altura da sua navbar */
+    padding-top: 90px; /* ou qualquer valor que seja a altura da sua navbar */
   }
 
 </style>

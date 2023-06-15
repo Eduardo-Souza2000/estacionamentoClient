@@ -5,7 +5,7 @@
     <ul class="nav nav-pills nav-fill">
 
       <li class="nav-item">
-        <router-link to="/" class="nav-link">Home</router-link>
+        <router-link to="/" class="nav-link">Adicionar</router-link>
       </li>
       <li class="nav-item">
         <router-link to="/about" class="nav-link">About</router-link>      
@@ -63,5 +63,13 @@ nav {
   color: #FFFFFF;
 }
 
+body {
+    background-color: black;
+    padding-top: 90px; /* ou qualquer valor que seja a altura da sua navbar */
+  }
+
+.custom-text-color{
+  color: #FFFFFF;
+}
 
 </style>
