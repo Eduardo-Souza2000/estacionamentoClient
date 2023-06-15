@@ -1,58 +1,58 @@
 import axios, { AxiosInstance } from 'axios';
-import { condutor } from "@/model/condutor";
-  
+import { modelo } from "@/model/modelo";
 
-export class condutorclient{
+export class ModeloClient {
+    
     private axiosClient: AxiosInstance;
-
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/condutor',
+            baseURL: 'http://localhost:8080/api/modelo',
             headers: {'Content-Type': 'application/json'}
         })
     }
 
 
-    public  async findbyid(id:number) : Promise<condutor>{
+    public  async findbyid(id:number) : Promise<modelo>{
         try{
-            return (await this.axiosClient.get<condutor> (`/${id}`)).data
+            return (await this.axiosClient.get<modelo> (`/${id}`)).data
         }
         catch(error: any){
             return Promise.reject(error.response)
         }
     }
 
-    public  async listAll() : Promise<condutor[]>{
+    public  async listAll() : Promise<modelo[]>{
         try{
-            return (await this.axiosClient.get<condutor[]> ('/lista')).data
+            return (await this.axiosClient.get<modelo[]> ('/lista')).data
         }
         catch(error: any){
             return Promise.reject(error.response)
         }
     }
 
-    public  async findbyativo() : Promise<condutor[]>{
+    public  async findbyativo() : Promise<modelo[]>{
         try{
-            return (await this.axiosClient.get<condutor[]> ('/ativo')).data
+            return (await this.axiosClient.get<modelo[]> ('/ativo')).data
         }
         catch(error: any){
             return Promise.reject(error.response)
         }
     }
 
-    public async cadastrar(condutor: condutor) :Promise<string>{
+
+    public async cadastrar(modelo: modelo) :Promise<string>{
         try {
-            return (await this.axiosClient.post<string>('/',condutor)).data
+            return (await this.axiosClient.post<string>('/',modelo)).data
         } catch (error: any) {
             return Promise.reject(error.response)   
         }
 
     }
 
-    public async editar (id: number, condutor: condutor) :Promise<string>{
+    public async editar (id: number, modelo: modelo) :Promise<string>{
         try {
-            return (await this.axiosClient.put<string>(`/${id}`, condutor)).data
+            return (await this.axiosClient.put<string>(`/${id}`, modelo)).data
             
         } catch (error: any) {
             return Promise.reject(error.response)   
@@ -72,6 +72,5 @@ export class condutorclient{
     }
 
 
-
-
 }
+  
