@@ -1,6 +1,7 @@
 <template >
 
     <div class="container">
+
         <div class="text-center mb-5">
             <h1 class="display-4 custom-text-color">Adicionar Marca</h1>
         </div>
@@ -29,7 +30,7 @@
 </script>
   
  
-<style>
+<style scoped>
 
 .container {
     display: flex;
