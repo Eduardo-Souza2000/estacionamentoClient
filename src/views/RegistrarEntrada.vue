@@ -11,7 +11,7 @@
                 <button class="btn bg-warning" @click="formatarCPF">Pesquisar</button>
               </div>
               <div class="col-3">
-                <router-link to="/Entrada" class="btn btn-success">Cadastrar Condutor</router-link>
+                <router-link to="/Adicionar-Condutor" class="btn btn-success">Cadastrar Condutor</router-link>
               </div>
             </div>
           </div>

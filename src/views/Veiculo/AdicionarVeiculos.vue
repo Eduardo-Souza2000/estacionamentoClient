@@ -12,17 +12,21 @@
                     <label for="inputmodelo" class="form-label text-color">Modelo do Veiculo</label>
                     <input type="nome" class="form-control" id="inputmodelo">
                 </div>
-                <div class="col-md-3" >
+                <div class="col-md-2" >
                     <label for="inputPlaca" class="form-label text-color">Placa do Veiculo</label>
                     <input type="nome" class="form-control" id="inputPlaca">
                 </div>
 
-                <div class="col-md-3" >
+                <div class="col-md-2" >
                     <label for="inputPlaca" class="form-label text-color">Cor do Veiculo</label>
                     <input type="nome" class="form-control" id="inputPlaca">
                 </div>
-                <div class="col-md-3" >
+                <div class="col-md-2" >
                     <label for="inputPlaca" class="form-label text-color">Tipo do Veiculo</label>
+                    <input type="nome" class="form-control" id="inputPlaca">
+                </div>
+                <div class="col-md-2" >
+                    <label for="inputPlaca" class="form-label text-color">Ano do Veiculo</label>
                     <input type="nome" class="form-control" id="inputPlaca">
                 </div>
             </div>

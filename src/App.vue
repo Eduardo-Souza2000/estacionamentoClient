@@ -16,6 +16,9 @@
       <li class="nav-item">
         <router-link to="/Listar-Veiculo" class="nav-link">Veiculos</router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="/Listar-Condutor" class="nav-link">Condutor</router-link>
+      </li>
      
     </ul>
   </nav>

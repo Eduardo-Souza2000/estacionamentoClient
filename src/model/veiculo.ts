@@ -8,6 +8,7 @@ export class veiculo extends abstractentity{
     modelo!: modelo;
     cor!: cor;
     tipo!: tipo;
+    ano!:number;
 
 
 }
