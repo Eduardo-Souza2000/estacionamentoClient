@@ -48,6 +48,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Adicionar-Condutor',
     name: 'Adicionar-Condutor',
     component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/AdicionarCondutor.vue')
+  },
+  {
+    path: '/Adicionar-Modelo',
+    name: 'Adicionar-Modelo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/AdicionarModelo.vue')
+  },
+  {
+    path: '/Listar-Modelo',
+    name: 'Listar-Modelo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/ListarModelo.vue')
   }
 ]
 
