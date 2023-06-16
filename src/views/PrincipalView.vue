@@ -11,7 +11,7 @@
       </div>
   
       <div class="col-12 mt-4 mb-4">
-        <router-link to="/" class="btn btn-success btn-lg col-6" >Registrar Entrada</router-link>
+        <router-link to="/Entrada" class="btn btn-success btn-lg col-6" >Registrar Entrada</router-link>
       </div>
   
   

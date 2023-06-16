@@ -12,12 +12,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Iniciar',
     component: () => import(/* webpackChunkName: "about" */ '../views/PrincipalView.vue')  },
   {
-    path: '/about',
-    name: 'about',
+    path: '/Entrada',
+    name: 'Entrada',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegistrarEntrada.vue')
   },
   {
     path: '/listarmarca',
@@ -28,6 +28,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Adicionar',
     name: 'Adicionar',
     component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue')
+  },
+  {
+    path: '/Adicionar-Veiculo',
+    name: 'Adicionar-Veiculo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/AdicionarVeiculos.vue')
+  },
+  {
+    path: '/Listar-Veiculo',
+    name: 'Listar-Veiculo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/ListarVeiculos.vue')
   }
 ]
 
