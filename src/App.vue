@@ -8,7 +8,7 @@
         <router-link to="/Iniciar" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/Entrada" class="nav-link">About</router-link>      
+        <router-link to="/Entrada" class="nav-link">Entrada</router-link>      
       </li>
       <li class="nav-item">
         <router-link to="/listarmarca" class="nav-link">Marca</router-link>
