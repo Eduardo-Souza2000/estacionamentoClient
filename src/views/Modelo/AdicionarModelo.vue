@@ -7,8 +7,9 @@
         </div>
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
-            <div class="row">
-                <div class="col-md-6" >
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-4" >
                     <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
                     <input type="nome" class="form-control" id="inputModelo">
                 </div>
@@ -20,7 +21,7 @@
                 
             </div>
             
-            <div class="col-12">
+            <div class="row justify-content-center mt-3 mb-3 col-3">
                 <router-link to="/Listar-Modelo" class="btn btn-success " >Adicionar</router-link>
             </div>
 

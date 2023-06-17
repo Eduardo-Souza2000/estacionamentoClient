@@ -22,6 +22,9 @@
       <li class="nav-item">
         <router-link to="/Listar-Modelo" class="nav-link">Modelo</router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="/Listar-Configuracao" class="nav-link">Configuração</router-link>
+      </li>
      
     </ul>
   </nav>

@@ -58,6 +58,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Listar-Modelo',
     name: 'Listar-Modelo',
     component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/ListarModelo.vue')
+  },
+  {
+    path: '/Listar-Configuracao',
+    name: 'Listar-Configuracao',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ListarConfiguracao.vue')
+  },
+  {
+    path: '/Adicionar-Configuracao',
+    name: 'Adicionar-Configuracao',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
   }
 ]
 
