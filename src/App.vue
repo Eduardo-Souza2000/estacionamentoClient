@@ -8,23 +8,28 @@
         <router-link to="/Iniciar" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item">
+        <router-link to="/Listar-Condutor" class="nav-link">Condutor</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="/Listar-Configuracao" class="nav-link">Configuração</router-link>
+      </li>
+      <li class="nav-item">
         <router-link to="/Entrada" class="nav-link">Entrada</router-link>      
       </li>
       <li class="nav-item">
         <router-link to="/listarmarca" class="nav-link">Marca</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/Listar-Veiculo" class="nav-link">Veiculos</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/Listar-Condutor" class="nav-link">Condutor</router-link>
-      </li>
-      <li class="nav-item">
         <router-link to="/Listar-Modelo" class="nav-link">Modelo</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/Listar-Configuracao" class="nav-link">Configuração</router-link>
+        <router-link to="/Listar-Movimentacao" class="nav-link">Movimentação</router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="/Listar-Veiculo" class="nav-link">Veiculos</router-link>
+      </li>
+
+      
      
     </ul>
   </nav>

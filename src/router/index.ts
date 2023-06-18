@@ -68,7 +68,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Adicionar-Configuracao',
     name: 'Adicionar-Configuracao',
     component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
+  },
+  {
+    path: '/Adicionar-Movimentacao',
+    name: 'Adicionar-Movimentacao',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/ListaMovimentacao.vue')
   }
+
 ]
 
 const router = createRouter({

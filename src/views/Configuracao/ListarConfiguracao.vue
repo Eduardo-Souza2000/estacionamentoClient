@@ -4,7 +4,7 @@
       <div class="d-flex justify-center align-items-center bg-dark">
         <h2 class="col-10 display-3 custom-text-color " >Configuração</h2>
         <div class="col-2">
-          <router-link to="/Adicionar-Configuracao" class="btn btn-success  col-6" >Adicionar Configuração</router-link>
+          <router-link to="/Adicionar-Configuracao" class="btn btn-success  col-8" >Adicionar Configuração</router-link>
         </div>
       </div>
 
