@@ -23,7 +23,7 @@
         <router-link to="/Listar-Modelo" class="nav-link">Modelo</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/Listar-Movimentacao" class="nav-link">Movimentação</router-link>
+        <router-link to="/Movimentacao" class="nav-link">Movimentação</router-link>
       </li>
       <li class="nav-item">
         <router-link to="/Listar-Veiculo" class="nav-link">Veiculos</router-link>

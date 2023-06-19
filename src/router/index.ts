@@ -70,9 +70,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
   },
   {
-    path: '/Adicionar-Movimentacao',
-    name: 'Adicionar-Movimentacao',
+    path: '/Movimentacao',
+    name: 'Movimentacao',
     component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/ListaMovimentacao.vue')
+  },
+  {
+    path: '/Recibo',
+    name: 'Recibo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Movimentacao/MovimentacaoFinalizada.vue')
   }
 
 ]
