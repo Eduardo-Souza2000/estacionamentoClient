@@ -27,12 +27,13 @@
       </thead>
       <tbody>
 
-        <tr scope="row">
-          <td>1</td>
+        <tr scope="row" v-for="item in marcasList" :key="item.id">
+          <td >{{ item.id}}</td>
           <td>
-            <button type="button" class="btn btn-success">Ativo</button>
+            <button v-if="item.ativo" type="button" class="btn btn-success">Ativo</button>
+            <button v-if="!item.ativo" type="button" class="btn btn-danger">Ativo</button>
           </td>
-          <td >Chevrolet</td>
+          <td >{{item.nome}}</td>
           <td>
             <button class="btn btn-editar "> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -73,7 +74,38 @@
 </template>
 
 <script lang="ts">
+  import axios from "axios";
 
+import { defineComponent } from 'vue';
+ 
+
+import {MarcaClient} from "@/client/MarcaClient";
+
+import { marca} from "@/model/marca";
+
+export default defineComponent({
+  name: 'MarcaLista',
+  data() {
+    return {
+        marcasList: new Array<marca>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      MarcaClient.listAll()
+        .then(sucess => {
+          this.marcasList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
 
 
 </script>
