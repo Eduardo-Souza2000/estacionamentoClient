@@ -74,7 +74,6 @@
 </template>
 
 <script lang="ts">
-  import axios from "axios";
 
 import { defineComponent } from 'vue';
  
@@ -91,16 +90,17 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.findAll();
+    const marcaClient = new MarcaClient();
+    this.findAll(marcaClient);
   },
   methods: {
 
-    findAll() {
-      MarcaClient.listAll()
-        .then(sucess => {
+    findAll(marcaClient: MarcaClient) {
+      marcaClient.listAll()
+        .then((sucess: marca[]) => {
           this.marcasList = sucess
         })
-        .catch(error => {
+        .catch((error :any )=> {
           console.log(error);
         });
     }
