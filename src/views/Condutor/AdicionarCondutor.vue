@@ -12,7 +12,7 @@
 
                 <div class="col-md-3" >
                     <label for="inputmodelo" class="form-label text-color">Nome do Condutor</label>
-                    <input type="nome" class="form-control" id="inputmodelo">
+                    <input type="nome" class="form-control" id="inputmodelo" >
                 </div>
 
             </div>

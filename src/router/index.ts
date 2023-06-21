@@ -1,14 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
+  
   {
     path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/Iniciar',
     name: 'Iniciar',
     component: () => import(/* webpackChunkName: "about" */ '../views/PrincipalView.vue')  },
   {
@@ -27,12 +22,39 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/Adicionar',
     name: 'Adicionar',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue'),
+    children: [{
+      path: 'Adicionar',
+      name: 'Adicionar-editar',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue'),
+    },
+    {
+      path: 'Adicionar',
+      name: 'Adicionar-excluir',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Marca/AdicionarMarca.vue'), 
+    }
+
+    ]
   },
   {
     path: '/Adicionar-Veiculo',
     name: 'Adicionar-Veiculo',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/AdicionarVeiculos.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/AdicionarVeiculos.vue'),
+    children: [
+      {
+        path: '/Adicionar-Veiculo-editar',
+        name: 'Adicionar-Veiculo-editar',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/AdicionarVeiculos.vue'),
+      }, 
+      {
+        path: '/Adicionar-Veiculo-excluir',
+        name: 'Adicionar-Veiculo-excluir',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Veiculo/AdicionarVeiculos.vue'),
+      }
+
+    ]
+
+    
   },
   {
     path: '/Listar-Veiculo',
@@ -47,12 +69,40 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/Adicionar-Condutor',
     name: 'Adicionar-Condutor',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/AdicionarCondutor.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/AdicionarCondutor.vue'),
+    children: [
+      {
+        path: '/Adicionar-Condutor-editar',
+        name: 'Adicionar-Condutor-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/AdicionarCondutor.vue')
+      },
+      {
+        path: '/Adicionar-Condutor-excluir',
+        name: 'Adicionar-Condutor-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Condutor/AdicionarCondutor.vue')
+      },
+
+    ]
   },
   {
     path: '/Adicionar-Modelo',
     name: 'Adicionar-Modelo',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/AdicionarModelo.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/AdicionarModelo.vue'),
+    children: [
+      {
+        path: '/Adicionar-Modelo-editar',
+        name: 'Adicionar-Modelo-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/AdicionarModelo.vue')
+
+      },
+      {
+        path: '/Adicionar-Modelo-excluir',
+        name: 'Adicionar-Modelo-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/AdicionarModelo.vue')
+
+      },
+
+    ]
   },
   {
     path: '/Listar-Modelo',
@@ -67,7 +117,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/Adicionar-Configuracao',
     name: 'Adicionar-Configuracao',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue'),
+    children: [
+    {
+      path: '/Adicionar-Configuracao-editar',
+       name: 'Adicionar-Configuracao-editar',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
+
+    }, 
+    {
+      path: '/Adicionar-Configuracao-excluir',
+       name: 'Adicionar-Configuracao-excluir',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
+
+    }
+
+    ]
   },
   {
     path: '/Movimentacao',

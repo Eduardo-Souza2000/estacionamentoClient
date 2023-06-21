@@ -17,6 +17,8 @@
       <table class="table table-bordered table-dark">
       <thead>
         <tr>
+          <th>ID</th>
+          <th >Ativo</th>
           <th>Inicio Expediente</th>
           <th>Fim expediente </th>
           <th>Valor Hora</th>
@@ -35,16 +37,20 @@
       <tbody>
 
         <tr scope="row">
-            <th>08:00:00</th>
-          <th>18:00:00</th>
-          <th>10.00</th>
-          <th>5.00</th>
-          <th>50:00:00</th>
-          <th>05:00:00</th>
-          <th>Não</th>
-          <th>25</th>
-          <th>25</th>
-          <th>25</th>
+          <td>1</td>
+          <td>
+            <button type="button" class="btn btn-success">Ativo</button>
+          </td>
+          <td>08:00:00</td>
+          <td>18:00:00</td>
+          <td>10.00</td>
+          <td>5.00</td>
+          <td>50:00:00</td>
+          <td>05:00:00</td>
+          <td>Não</td>
+          <td>25</td>
+          <td>25</td>
+          <td>25</td>
           <td>
               <button class="btn btn-editar "> 
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

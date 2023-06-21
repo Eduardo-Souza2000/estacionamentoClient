@@ -18,17 +18,23 @@
       <table class="table table-bordered table-dark">
         <thead>
           <tr>
-            <th class="col-5"> Nome</th>
-            <th class="col-3"> CPF</th>
+            <th class="col-1">ID</th>
+            <th class="col-1">Ativo</th>
+            <th class="col-3"> Nome</th>
+            <th class="col-2"> CPF</th>
             <th class="col-2"> TELEFONE</th>
-            <th scope="col-2">Atualizar</th>
-            <th scope="col-2">Excluir</th>
-            <th  scope="col-2">Detalhe</th>
+            <th scope="col-1">Atualizar</th>
+            <th scope="col-1">Excluir</th>
+            <th  scope="col-1">Detalhe</th>
           </tr>
         </thead>
         <tbody>
   
           <tr scope="row">
+            <td>1</td>
+            <td>
+              <button type="button" class="btn btn-success">Ativo</button>
+            </td>
             <td>Eduardo Souza</td>
             <td> 109.975.819.85</td>
             <td>(45) 99815-2683</td>

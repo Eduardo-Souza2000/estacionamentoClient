@@ -18,16 +18,23 @@
           <table class="table table-bordered table-dark">
             <thead>
               <tr>
-                <th class="col-5"> Modelo</th>
-                <th class="col-5"> Marca</th>
-                <th>Atualizar</th>
-                <th>Excluir</th>
-                <th>Atualizar</th>
+                <th class="col-1">ID</th>
+                <th class="col-1">Ativo</th>
+                <th class="col-4"> Modelo</th>
+                <th class="col-3"> Marca</th>
+                <th class="col-1">Atualizar</th>
+                <th class="col-1">Excluir</th>
+                <th class="col-1">Atualizar</th>
               </tr>
             </thead>
             <tbody>
+
       
               <tr scope="row">
+                <td>1</td>
+                <td>
+                  <button type="button" class="btn btn-success">Ativo</button>
+                </td>
                 <td>Uno Mille Fire</td>
                 <td>Fiat</td>
                 <td>

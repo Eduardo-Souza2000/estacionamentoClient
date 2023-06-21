@@ -1,12 +1,12 @@
 <template >
 
-    <div class="container">
+    <div class="container ">
 
         <div class="text-center mb-5">
             <h1 class="display-4 custom-text-color">Adicionar Marca</h1>
         </div>
 
-        <form class="row g-3 d-flex justify-content-center">
+        <form class="row g-3 d-flex justify-content-center bg-dark">
             <div class="col-md-4" >
                 <label for="inputNome" class="form-label">Nome da Marca</label>
                 <input type="nome" class="form-control" id="inputNome">

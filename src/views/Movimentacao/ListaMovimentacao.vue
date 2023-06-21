@@ -10,6 +10,7 @@
           <table class="table table-bordered table-dark">
             <thead>
               <tr>
+                <th class="col-1">ID</th>
                 <th class="col"> Status</th>
                 <th class="col"> Entrada</th>
                 <th class="col"> Saida</th>
@@ -23,6 +24,7 @@
             <tbody>
       
               <tr scope="row">
+                <td>1</td>
                 <td>
                   <button class="btn bg-success"> Em Aberto
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
@@ -46,6 +48,7 @@
                 
               </tr>
               <tr scope="row">
+                <td>1</td>
                 <td>
                   <button class="btn bg-danger"> Finalizada
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">

@@ -5,7 +5,7 @@
     <ul class="nav nav-pills nav-fill">
 
       <li class="nav-item">
-        <router-link to="/Iniciar" class="nav-link">Home</router-link>
+        <router-link to="/" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item">
         <router-link to="/Listar-Condutor" class="nav-link">Condutor</router-link>
