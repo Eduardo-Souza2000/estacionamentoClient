@@ -3,7 +3,9 @@
     <div class="container ">
 
         <div class="text-center mb-5">
-            <h1 class="display-4 custom-text-color">Editar Marca</h1>
+            <h1 v-if="form === undefined" class="display-4 custom-text-color">Adicionar Marca</h1>
+            <h1 v-if="form === 'excluir'" class="display-4 custom-text-color">Excluir Marca</h1>
+            <h1 v-if="form === 'editar'" class="display-4 custom-text-color">Editar Marca</h1>
         </div>
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
@@ -60,7 +62,7 @@ export default defineComponent({
   data() {
     return {
         marcaclient: new MarcaClient(),
-      marca: new marca(),
+        marca: new marca(),
       mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
