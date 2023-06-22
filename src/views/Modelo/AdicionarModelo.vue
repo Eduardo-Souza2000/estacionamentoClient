@@ -19,26 +19,30 @@
 
                 <div class="col-md-4">
 
-                    <select class="form-select" aria-label="Default select example">
+                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
                         <option>Marca</option>
-                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id"   selected>{{itemMarca.nome}}</option>
+                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
                  
                     </select>
 
                 </div>
+
                 <!--
                 <div class="col-md-4" >
                     <label for="inputMarca" class="form-label text-color">Marca</label>
                     
                     <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
 
-                </div>-->
+                </div>
+                -->
  
                 
             </div>
            
             <div v-if="form === undefined" class="row justify-content-center mt-3 mb-3 col-3">
-                <router-link to="/Listar-Modelo" class="btn btn-success " @click="onClickCadastrar"  >Adicionar</router-link>
+
+                <router-link to="/Listar-Modelo" class="btn btn-success " @click="onClickCadastrar" >Adicionar</router-link>
+
             </div>
 
             <div v-if="form === 'excluir'"  class="d-flex justify-content-center ">
@@ -137,6 +141,7 @@ export default defineComponent({
     
     },
     onClickCadastrar(){
+        console.log(this.modelo);
         this.modeloclient.cadastrar(this.modelo)
         .then(sucess => {
           this.modelo = new modelo();
