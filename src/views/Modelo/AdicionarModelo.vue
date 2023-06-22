@@ -10,7 +10,7 @@
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
 
-            <div class="row justify-content-center mt-3">
+            <div v-if="form === undefined" class="row justify-content-center mt-3">
                 
                 <div class="col-md-4" >
                     <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
@@ -27,6 +27,7 @@
 
                 </div>
 
+
                 <!--
                 <div class="col-md-4" >
                     <label for="inputMarca" class="form-label text-color">Marca</label>
@@ -38,6 +39,68 @@
  
                 
             </div>
+
+            <div v-if="form === 'excluir'" class="row justify-content-center mt-3">
+                
+                <div class="col-md-4" >
+                    <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
+                    <input type="nome" class="form-control" id="inputModelo" v-model="modelo.nome">
+                </div>
+
+                <div class="col-md-4">
+
+                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
+                        <option>Marca</option>
+                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
+                 
+                    </select>
+
+                </div>
+
+
+                <!--
+                <div class="col-md-4" >
+                    <label for="inputMarca" class="form-label text-color">Marca</label>
+                    
+                    <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
+
+                </div>
+                -->
+ 
+                
+            </div>
+
+            <div v-if="form === 'editar'" class="row justify-content-center mt-3">
+                
+                <div class="col-md-4" >
+                    <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
+                    <input type="nome" class="form-control" id="inputModelo" v-model="modelo.nome">
+                </div>
+
+                <div class="col-md-4">
+
+                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
+                        <option>Marca</option>
+                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
+                 
+                    </select>
+
+                </div>
+
+
+                <!--
+                <div class="col-md-4" >
+                    <label for="inputMarca" class="form-label text-color">Marca</label>
+                    
+                    <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
+
+                </div>
+                -->
+ 
+                
+            </div>
+
+
            
             <div v-if="form === undefined" class="row justify-content-center mt-3 mb-3 col-3">
 
