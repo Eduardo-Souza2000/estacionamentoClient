@@ -43,7 +43,7 @@ export class MovimentacaoClient {
 
     public async cadastrar(movimentacao: movimentacao) :Promise<string>{
         try {
-            return (await this.axiosClient.post<string>('/',movimentacao)).data
+            return (await this.axiosClient.post<string>('',movimentacao)).data
         } catch (error: any) {
             return Promise.reject(error.response)   
         }

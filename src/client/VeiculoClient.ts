@@ -43,7 +43,7 @@ export class VeiculoClient {
 
     public async cadastrar(veiculo: veiculo) :Promise<string>{
         try {
-            return (await this.axiosClient.post<string>('/',veiculo)).data
+            return (await this.axiosClient.post<string>('',veiculo)).data
         } catch (error: any) {
             return Promise.reject(error.response)   
         }

@@ -43,7 +43,7 @@ export class condutorclient{
 
     public async cadastrar(condutor: condutor) :Promise<string>{
         try {
-            return (await this.axiosClient.post<string>('/',condutor)).data
+            return (await this.axiosClient.post<string>('',condutor)).data
         } catch (error: any) {
             return Promise.reject(error.response)   
         }

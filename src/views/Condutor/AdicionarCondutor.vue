@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="text-center mb-5">
-            <h1 class="display-4 custom-text-color">Adicionar Condutor</h1>
+            <h1 class="display-4 custom-text-color">Editar Condutor</h1>
         </div>
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
@@ -32,9 +32,25 @@
                 </div>
                 
             </div>
-            
+            <!--
             <div class="col-12 mt-5 mb-3">
                 <router-link to="/Listar-Condutor" class="btn btn-success " >Adicionar</router-link>
+            </div>
+            -->
+
+            <div class="d-flex justify-content-center ">
+                <div class="row ">
+                    <!--<div class="col-5">
+                        <router-link to="/listarmarca" class="btn btn-primary " >Excluir</router-link>
+                    </div>-->
+                  <div class="col-5">
+                        <router-link to="/listarmarca" class="btn btn-warning " >Editar</router-link>
+                  </div>
+                    <div class="col-5">
+                        <router-link to="/listarmarca" class="btn btn-info " >Voltar</router-link>
+                    </div>
+                </div>
+
             </div>
 
         </form>
