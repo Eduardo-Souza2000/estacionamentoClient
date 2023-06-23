@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md-2" >
                     <label for="inputPlaca" class="form-label text-color">Ano do Veiculo</label>
-                    <input type="nome" class="form-control" id="inputPlaca" v-model="veiculo.ano">
+                    <input type="nome" class="form-control" id="inputAno" v-model="veiculo.ano">
                 </div>
             </div>
             
