@@ -61,7 +61,7 @@ export class condutorclient{
 
     public async delete (id:number) : Promise<string>{
         try{
-            return (await this.axiosClient.delete<string>('/${id}')).data
+            return (await this.axiosClient.delete<string>(`/${id}`)).data
 
         }
         catch(error:any)

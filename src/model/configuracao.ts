@@ -1,7 +1,7 @@
 import { abstractentity } from "@/model/abstractentity";
 
 export class configuracao extends abstractentity{
-    valorhora!: Number;
+   /* valorhora!: BigDecimal;
     valorminuto!: Number;
     inicioexpediente!: Date;
     fimexpediente!: Date;
@@ -10,6 +10,16 @@ export class configuracao extends abstractentity{
     gerardesconto!: boolean;
     vagasmotos!: Number;
     vagascarro!: Number;
-    vagasvan!: Number;
+    vagasvan!: Number;*/
+    valorhora!: number;
+    valorminuto!: number;
+    inicioexpediente!: string;
+    fimexpediente!: string;
+    tempoparadesconto!: string;
+    tempodedesconto!: string;
+    gerardesconto!: boolean;
+    vagasmotos!: number;
+    vagascarro!: number;
+    vagasvan!: number;
 
 }

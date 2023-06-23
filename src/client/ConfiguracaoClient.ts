@@ -13,9 +13,20 @@ export class ConfiguracaoClient {
     }
 
 
+
+
     public  async findbyid(id:number) : Promise<configuracao>{
         try{
             return (await this.axiosClient.get<configuracao> (`/${id}`)).data
+        }
+        catch(error: any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    public  async listAll() : Promise<configuracao[]>{
+        try{
+            return (await this.axiosClient.get<configuracao[]> ('/lista')).data
         }
         catch(error: any){
             return Promise.reject(error.response)
