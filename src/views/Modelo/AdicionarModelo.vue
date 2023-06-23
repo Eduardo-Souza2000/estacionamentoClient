@@ -18,12 +18,11 @@
                 </div>
 
                 <div class="col-md-4">
-
-                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
-                        <option>Marca</option>
-                        <option v-for="itemMarca in marcaFiltrada" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
-                 
-                    </select>
+                  <label class="form-label text-color">Marca</label>
+                  <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
+                      <option v-for="itemMarca in marcaFiltrada" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
+                
+                  </select>
 
                 </div>
 
@@ -95,7 +94,7 @@ export default defineComponent({
         modelo: new modelo(),
         modeloclient: new ModeloClient(),
         marcaclient: new MarcaClient(),
-        marcaLista: new Array<marca>(),
+        marcaLista: [] as marca[],
         mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
@@ -111,15 +110,16 @@ export default defineComponent({
     form () {
       return this.$route.query.form
     },
-    marcaFiltrada() {
-    return this.marcaLista.filter(item => item.ativo);
-    }
+    marcaFiltrada() :marca[] {
+        return this.marcaLista.filter((itemMarca: marca) => itemMarca.ativo);
+  }
+    
   },
   mounted() { 
     if (this.id !== undefined)
     {
         this.findbyId(Number(this.id));
-        this.findAll();
+        
     };
 
     this.findAll();
@@ -142,6 +142,7 @@ export default defineComponent({
         this.modeloclient.cadastrar(this.modelo)
         .then(sucess => {
           this.modelo = new modelo();
+          this.findAll();
           
         })
         .catch(error => {
@@ -156,6 +157,7 @@ export default defineComponent({
       this.modeloclient.findbyid(id)
         .then(sucess => {
           this.modelo = sucess;
+          
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -168,7 +170,7 @@ export default defineComponent({
       this.modeloclient.editar(this.modelo.id, this.modelo)
         .then(sucess => {
           this.modelo = new modelo()
-          
+          this.findAll();
           this.mensagem.ativo = true;
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
@@ -185,6 +187,7 @@ export default defineComponent({
       this.modeloclient.delete(this.modelo.id)
         .then(sucess => {
           this.modelo = new modelo()
+          this.findAll();
           
           this.$router.push({ name: 'Listar-Modelo' });
         })
