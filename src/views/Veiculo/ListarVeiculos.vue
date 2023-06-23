@@ -31,16 +31,17 @@
         </thead>
         <tbody>
   
-          <tr scope="row">
-            <td>1</td>
+          <tr v-for="veiculo in veiculoLista" :key="veiculo.id" scope="row">
+            <td>{{ veiculo.id }}</td>
             <td>
-              <button type="button" class="btn btn-success">Ativo</button>
+              <button v-if="veiculo.ativo" type="button" class="btn btn-success">Ativo</button>
+              <button v-if="!veiculo.ativo" type="button" class="btn btn-danger">Ativo</button>
             </td>
-            <td>UNO MILLE FIRE</td>
-            <td> AMC-4616</td>
-            <td> Preto</td>
-            <td >Carro</td>
-            <td>2000</td>
+            <td>{{veiculo.modelo}}</td>
+            <td>{{ veiculo.placa }}</td>
+            <td> {{ veiculo.cor }}</td>
+            <td >{{ veiculo.tipo }}</td>
+            <td>{{veiculo.ano}}</td>
            
 
             <td>
@@ -82,6 +83,50 @@
   </template>
   
   <script lang="ts">
+
+import { defineComponent } from 'vue';
+ import {ModeloClient} from "@/client/ModeloClient";
+ import { veiculo} from "@/model/veiculo";
+ import {VeiculoClient} from "@/client/VeiculoClient";
+import { modelo} from "@/model/modelo";
+
+ export default defineComponent({
+  name: 'veiculoLista',
+  
+  data() {
+    return {
+        veiculoLista: new Array<veiculo>(),
+        modeloLista: new Array<modelo>(),
+        modeloclient: new ModeloClient(),
+        veiculoclient: new VeiculoClient()
+    }
+  },
+  mounted() {
+    this.findAll();
+    this.findAllMarca();
+  },
+  methods: {
+
+    findAll() {
+      this.veiculoclient.listAll()
+        .then((sucess: veiculo[]) => {
+          this.veiculoLista = sucess
+        })
+        .catch((error :any )=> {
+          console.log(error);
+        });
+    },
+    findAllMarca() {
+      this.veiculoclient.listAll()
+        .then((sucess: veiculo[]) => {
+          this.veiculoLista = sucess
+        })
+        .catch((error :any )=> {
+          console.log(error);
+        });
+    }
+  }
+});
   
   
   </script>
