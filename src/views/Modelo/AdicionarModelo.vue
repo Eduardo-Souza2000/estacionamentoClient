@@ -10,7 +10,7 @@
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
 
-            <div v-if="form === undefined" class="row justify-content-center mt-3">
+            <div  class="row justify-content-center mt-3">
                 
                 <div class="col-md-4" >
                     <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
@@ -21,81 +21,12 @@
 
                     <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
                         <option>Marca</option>
-                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
+                        <option v-for="itemMarca in marcaFiltrada" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
                  
                     </select>
 
                 </div>
 
-
-                <!--
-                <div class="col-md-4" >
-                    <label for="inputMarca" class="form-label text-color">Marca</label>
-                    
-                    <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
-
-                </div>
-                -->
- 
-                
-            </div>
-
-            <div v-if="form === 'excluir'" class="row justify-content-center mt-3">
-                
-                <div class="col-md-4" >
-                    <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
-                    <input type="nome" class="form-control" id="inputModelo" v-model="modelo.nome">
-                </div>
-
-                <div class="col-md-4">
-
-                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
-                        <option>Marca</option>
-                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
-                 
-                    </select>
-
-                </div>
-
-
-                <!--
-                <div class="col-md-4" >
-                    <label for="inputMarca" class="form-label text-color">Marca</label>
-                    
-                    <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
-
-                </div>
-                -->
- 
-                
-            </div>
-
-            <div v-if="form === 'editar'" class="row justify-content-center mt-3">
-                
-                <div class="col-md-4" >
-                    <label for="inputModelo" class="form-label text-color">Modelo do Veiculo</label>
-                    <input type="nome" class="form-control" id="inputModelo" v-model="modelo.nome">
-                </div>
-
-                <div class="col-md-4">
-
-                    <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
-                        <option>Marca</option>
-                        <option v-for="itemMarca in marcaLista" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
-                 
-                    </select>
-
-                </div>
-
-
-                <!--
-                <div class="col-md-4" >
-                    <label for="inputMarca" class="form-label text-color">Marca</label>
-                    
-                    <input id="{autocompleteInput}" class="form-control" type="text" placeholder="Marca"> 
-
-                </div>
-                -->
  
                 
             </div>
@@ -112,7 +43,7 @@
                 <div class="row ">
                     
                     <div class="col-5">
-                        <router-link to="/Listar-Modelo" class="btn btn-primary " >Excluir</router-link>
+                        <router-link to="/Listar-Modelo" class="btn btn-primary" @click="onClickExcluir">Excluir</router-link>
                     </div>
                   
                     <div class="col-5">
@@ -127,7 +58,7 @@
                 <div class="row ">
                     
                   <div v-if="form === 'editar'" class="col-5">
-                        <router-link to="/Listar-Modelo" class="btn btn-warning " >Editar</router-link>
+                        <router-link to="/Listar-Modelo" class="btn btn-warning" @click="onClickEditar" >Editar</router-link>
                   </div>
                     <div class="col-5">
                         <router-link to="/Listar-Modelo" class="btn btn-info">Voltar</router-link>
@@ -179,6 +110,9 @@ export default defineComponent({
     },
     form () {
       return this.$route.query.form
+    },
+    marcaFiltrada() {
+    return this.marcaLista.filter(item => item.ativo);
     }
   },
   mounted() { 
@@ -252,7 +186,7 @@ export default defineComponent({
         .then(sucess => {
           this.modelo = new modelo()
           
-          this.$router.push({ name: 'marca-lista-view' });
+          this.$router.push({ name: 'Listar-Modelo' });
         })
         .catch(error => {
           this.mensagem.ativo = true;
