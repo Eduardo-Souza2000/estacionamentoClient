@@ -126,12 +126,7 @@ const routes: Array<RouteRecordRaw> = [
       component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
 
     }, 
-    {
-      path: '/Adicionar-Configuracao-excluir',
-       name: 'Adicionar-Configuracao-excluir',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Configuracao/ConfigurarConfiguracao.vue')
-
-    }
+    
 
     ]
   },

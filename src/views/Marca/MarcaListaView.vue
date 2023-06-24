@@ -101,6 +101,7 @@ export default defineComponent({
       this.marcaClient.listAll()
         .then((sucess: marca[]) => {
           this.marcasList = sucess
+          console.log(this.marcasList)
         })
         .catch((error :any )=> {
           console.log(error);

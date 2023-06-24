@@ -20,7 +20,8 @@
                 <div class="col-md-4">
                   <label class="form-label text-color">Marca</label>
                   <select v-model="modelo.marca" class="form-select" aria-label="Default select example">
-                      <option v-for="itemMarca in marcaFiltrada" :key="itemMarca.id" :value="itemMarca"   selected>{{itemMarca.nome}}</option>
+                      <option v-for="itemMarca in marcaFiltrada" :key="itemMarca.id" :value="itemMarca"   
+                        selected>{{itemMarca.nome}} </option>
                 
                   </select>
 
