@@ -43,6 +43,8 @@
           <td>
             <button v-if="configuracaoLista.ativo" type="button" class="btn btn-success">Ativo</button>
           </td>
+
+
        
           <td>{{ formatTime( configuracaoLista.inicioexpediente) }}</td>
           <td>{{ formatTime(configuracaoLista.fimexpediente) }}</td>
@@ -102,6 +104,7 @@
       return{
         configuracaoLista: new configuracao(),
         ConfiguracaoClient: new ConfiguracaoClient(),
+
         mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
@@ -132,8 +135,8 @@
       this.ConfiguracaoClient.findbyid(1)
       .then((sucess: configuracao) => {
           this.configuracaoLista = sucess
-         
-          console.log(this.configuracaoLista)
+
+          console.log(this.configuracaoLista.vagascarro)
         })
         .catch((error :any )=> {
           this.mensagem.ativo = true;
