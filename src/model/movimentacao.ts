@@ -8,14 +8,14 @@ export class movimentacao extends abstractentity{
     horaatual!: Date;
     entrada!: Date;
     saida!: Date;
-    tempototalhora!: Number;
-    tempototalminuto!: Number;
-    tempodesconto!: Number;
-    tempomultaminuto!: Number;
-    tempomultahora!: Number;
-    valordesconto!: Number;
-    valormulta!: Number;
-    valortotal!:Number;
-    valorhora!: Number;
-    valorhoramulta!: Number;
+    tempototalhora!: number;
+    tempototalminuto!: number;
+    tempodesconto!: number;
+    tempomultaminuto!: number;
+    tempomultahora!: number;
+    valordesconto!: number;
+    valormulta!: number;
+    valortotal!:number;
+    valorhora!: number;
+    valorhoramulta!: number;
 }

@@ -8,7 +8,8 @@
             <p class="fw-bold">Número do Recibo: 001</p>
             <p>Data: 16/06/2023</p>
         </div>
-
+        </div>
+        <!--
         </div>
         <div class="dashed-line"></div>
 
@@ -20,16 +21,16 @@
             <div class="col-6">
                 <div class="d-flex flex-column align-items-start">
                     <div class="row">
-                        <p class="col">Nome:</p>
+                        <p class="col">Nome: {{ movimentacao.condutor.nome }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">CPF:</p>
+                        <p class="col">CPF: {{ movimentacao.condutor.cpf }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Telefone:</p>
+                        <p class="col">Telefone: {{ movimentacao.condutor.telefone }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Horas Pagas:</p>
+                        <p class="col">Horas Pagas: {{ movimentacao.tempototalhora }}</p>
                     </div>
                 </div>
             </div>
@@ -46,19 +47,19 @@
                 
                 <div class="d-flex flex-column align-items-start" >
                     <div class="row"> 
-                        <p>Placa: </p>
+                        <p>Placa: {{ movimentacao.veiculo.placa }}</p>
                     </div>
                     <div class="row"> 
-                        <p>Modelo: </p>
+                        <p>Modelo: {{ movimentacao.veiculo.modelo.nome }} </p>
                     </div>
                     <div class="row"> 
-                        <p>Marca: </p>
+                        <p>Marca:  {{ movimentacao.veiculo.modelo.marca.nome }}  </p>
                     </div>
                     <div class="row"> 
-                        <p>Tipo do Veiculo: </p>
+                        <p>Tipo do Veiculo: {{ movimentacao.veiculo.tipo }}</p>
                     </div>
                     <div class="row"> 
-                        <p>Ano do Veiculo: </p>
+                        <p>Ano do Veiculo: {{ movimentacao.veiculo.ano }}</p>
                     </div>
                 </div>
             </div>
@@ -73,19 +74,19 @@
                 <h5> Dados da Movimentaçao </h5>
                 <div class="d-flex flex-column align-items-start">
                     <div class="row">
-                        <p class="col">Hora de Entrada:</p>
+                        <p class="col">Hora de Entrada: {{ movimentacao.entrada }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Hora da Saida</p>
+                        <p class="col">Hora da Saida: {{ movimentacao.saida }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Tempo de Permanencia: </p>
+                        <p class="col">Tempo de Permanencia: {{ movimentacao.tempomultahora }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Minutos apos Horario Comercial: </p>
+                        <p class="col">Minutos apos Horario Comercial: {{ movimentacao.tempomultahora }} </p>
                     </div>
                     <div class="row">
-                        <p class="col"> Tempo para Desconto: </p>
+                        <p class="col"> Tempo para Desconto: {{ movimentacao.tempodesconto }}</p>
                     </div>
                 </div>
             </div>
@@ -100,10 +101,10 @@
                 <div class="d-flex flex-column align-items-start">
                     
                     <div class="row">
-                        <p class="col">Horas Acumuladas pelo Condutor: </p>
+                        <p class="col">Horas Acumuladas pelo Condutor: {{ movimentacao.condutor.tempopago }}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor de Desconto: </p>
+                        <p class="col"> Valor de Desconto: {{ movimentacao.valordesconto }}</p>
                     </div>
                 </div>
             </div>
@@ -118,17 +119,17 @@
                 <div class="d-flex flex-column align-items-start">
                     
                     <div class="row">
-                        <p class="col">Valor a Pagar por Tempo Estacionado: </p>
+                        <p class="col">Valor a Pagar por Tempo Estacionado: {{ movimentacao.valorhora }}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor a Pagar por Exceder o horario comercial (MULTA): </p>
+                        <p class="col"> Valor a Pagar por Exceder o horario comercial (MULTA): {{ movimentacao.valormulta }}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor Desconto: </p>
+                        <p class="col"> Valor Desconto: {{ movimentacao.valordesconto }}</p>
                     </div>
 
                     <div class="row">
-                        <h4> Valor Toral a Pagar: </h4>
+                        <h4> Valor Toral a Pagar: {{ movimentacao.valortotal }}</h4>
                     </div>
                 </div>
             </div>
@@ -146,72 +147,92 @@
                 <router-link to="/Movimentacao" class="btn btn-primary-voltar mt-4 col-6">Voltar</router-link>
             </div>
         </div>
-    
+        -->
     
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalRecibo" tabindex="-1" aria-labelledby="modalReciboLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modalReciboLabel">Recibo</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <p class="fw-bold">Nome da Loja</p>
-            <p>Endereço da Loja</p>
-            <p>Telefone da Loja</p>
-
-            <table class="table mt-4">
-                <thead>
-                <tr>
-                    <th scope="col">Item</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Preço Unitário</th>
-                    <th scope="col">Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Produto 1</td>
-                    <td>2</td>
-                    <td>R$ 10,00</td>
-                    <td>R$ 20,00</td>
-                </tr>
-                <tr>
-                    <td>Produto 2</td>
-                    <td>1</td>
-                    <td>R$ 5,00</td>
-                    <td>R$ 5,00</td>
-                </tr>
-                <tr>
-                    <td>Produto 3</td>
-                    <td>3</td>
-                    <td>R$ 8,00</td>
-                    <td>R$ 24,00</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="3" class="text-end">Total:</td>
-                    <td>R$ 49,00</td>
-                </tr>
-                </tfoot>
-            </table>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Imprimir</button>
-            </div>
-        </div>
-        </div>
-    </div>
+  
   </template>
 
 
 <script lang="ts">
 
+import { defineComponent } from 'vue';
+
+import { movimentacao } from '@/model/movimentacao';
+import { MovimentacaoClient } from '@/client/MovimentacaoClient';
+import { condutorclient } from '@/client/condutorclient';
+import {condutor} from '@/model/condutor';
+import { MarcaClient } from '@/client/MarcaClient';
+import { marca } from '@/model/marca';
+import { VeiculoClient } from '@/client/VeiculoClient';
+import { veiculo } from '@/model/veiculo';
+import { ModeloClient } from '@/client/ModeloClient';
+import { modelo } from '@/model/modelo';
+
+export default defineComponent({ 
+    name: 'MovimentacaoFormulario',
+
+data() {
+  return {
+      movimentacao: new movimentacao(),
+      MovimentacaoClient: new MovimentacaoClient(),
+      modelo: new Array<modelo>(),
+      modeloclient: new ModeloClient(),
+      marcaclient: new MarcaClient(),
+      marca: new Array<marca>(),
+      VeiculoClient: new VeiculoClient(),
+      veiculo: new Array<veiculo>(),
+      condutor: new Array<condutor>(),
+      condutorclient: new condutorclient(),
+      mensagem: {
+      ativo: false as boolean,
+      titulo: "" as string,
+      mensagem: "" as string,
+      css: "" as string
+    }
+  }
+},
+computed: {
+  id () { 
+    return this.$route.query.id
+  },
+  form () {
+    return this.$route.query.form
+  }
+  
+},
+mounted() { 
+  if (this.id !== undefined)
+  {
+      this.findbyId(Number(this.id));
+      
+  };
+
+  
+},
+methods: {
+ 
+  findbyId(id: number){
+    this.MovimentacaoClient.findbyid(id)
+      .then(sucess => {
+        this.movimentacao = sucess;
+        
+      })
+      .catch(error => {
+        this.mensagem.ativo = true;
+        this.mensagem.mensagem = error;
+        this.mensagem.titulo = "Error. ";
+        this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+      });
+  }
+
+
+ }
+
+
+
+ })
 
 
 

@@ -5,7 +5,7 @@ export class condutor extends abstractentity{
     nome!: string;
     cpf!:string;
     telefone!: string;
-    tempogasto!: Number;
+    tempopago!: Number;
     tempodesconto!: Number;
     tempototal!:Number; 
 

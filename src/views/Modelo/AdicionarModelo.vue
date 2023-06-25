@@ -105,7 +105,7 @@ export default defineComponent({
     }
   },
   computed: {
-    id () {
+    id () { 
       return this.$route.query.id
     },
     form () {

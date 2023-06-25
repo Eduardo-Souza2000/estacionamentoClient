@@ -34,7 +34,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody v-if="configuracaoLista">
 
         <tr  scope="row">
 
@@ -44,8 +44,8 @@
             <button v-if="configuracaoLista.ativo" type="button" class="btn btn-success">Ativo</button>
           </td>
        
-          <td>{{configuracaoLista.inicioexpediente}}</td>
-          <td>{{configuracaoLista.fimexpediente}}</td>
+          <td>{{ formatTime( configuracaoLista.inicioexpediente) }}</td>
+          <td>{{ formatTime(configuracaoLista.fimexpediente) }}</td>
           <td>{{ configuracaoLista.valorhora }}</td>
           <td>{{configuracaoLista.valorminuto}}</td>
           <td>{{configuracaoLista.tempoparadesconto}}</td>
@@ -92,6 +92,7 @@
   import { defineComponent } from 'vue';
   import { configuracao } from '@/model/configuracao';
   import { ConfiguracaoClient } from '@/client/ConfiguracaoClient';
+  
 
 
   export default defineComponent({
@@ -129,17 +130,23 @@
 
     findbyId(id: number){
       this.ConfiguracaoClient.findbyid(1)
-        .then((sucess: configuracao) => {
+      .then((sucess: configuracao) => {
+          this.configuracaoLista = sucess
          
-          this.configuracaoLista = sucess;
           console.log(this.configuracaoLista)
         })
-        .catch(error => {
+        .catch((error :any )=> {
           this.mensagem.ativo = true;
           this.mensagem.mensagem = error;
           this.mensagem.titulo = "Error. ";
-          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";        
         });
+       
+    },
+    formatTime(time: number): string {
+      const hour = Math.floor(time / 60).toString().padStart(2, '0');
+      const minute = (time % 60).toString().padStart(2, '0');
+      return  `${hour}:${minute}`;
     },
     }
   })

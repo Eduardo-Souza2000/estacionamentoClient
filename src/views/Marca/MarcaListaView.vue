@@ -31,7 +31,7 @@
           <td >{{ item.id}}</td>
           <td>
             <button v-if="item.ativo" type="button" class="btn btn-success">Ativo</button>
-            <button v-if="!item.ativo" type="button" class="btn btn-danger">Ativo</button>
+            <button v-if="!item.ativo" type="button" class="btn btn-danger">Desativado</button>
           </td>
           <td >{{item.nome}}</td>
           <td>

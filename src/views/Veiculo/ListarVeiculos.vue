@@ -35,7 +35,7 @@
             <td>{{ veiculo.id }}</td>
             <td>
               <button v-if="veiculo.ativo" type="button" class="btn btn-success">Ativo</button>
-              <button v-if="!veiculo.ativo" type="button" class="btn btn-danger">Ativo</button>
+              <button v-if="!veiculo.ativo" type="button" class="btn btn-danger">Desativado</button>
             </td>
             <td>{{veiculo.modelo.nome}}</td>
             <td>{{ veiculo.placa }}</td>
