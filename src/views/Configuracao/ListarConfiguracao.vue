@@ -36,29 +36,29 @@
 
       <tbody v-if="configuracaoLista">
 
-        <tr  scope="row">
+        <tr v-for=" conf in configuracaoLista" :key="conf.id" scope="row">
 
-          <td >{{ configuracaoLista.id }}</td>
+          <td >{{ conf.id }}</td>
         
           <td>
-            <button v-if="configuracaoLista.ativo" type="button" class="btn btn-success">Ativo</button>
+            <button v-if="conf.ativo" type="button" class="btn btn-success">Ativo</button>
           </td>
 
 
        
-          <td>{{ formatTime( configuracaoLista.inicioexpediente) }}</td>
-          <td>{{ formatTime(configuracaoLista.fimexpediente) }}</td>
-          <td>{{ configuracaoLista.valorhora }}</td>
-          <td>{{configuracaoLista.valorminuto}}</td>
-          <td>{{configuracaoLista.tempoparadesconto}}</td>
-          <td>{{configuracaoLista.tempodedesconto}}</td>
-          <td>{{configuracaoLista.gerardesconto}}</td>
-          <td>{{configuracaoLista.vagasmotos}}</td>
-          <td>{{configuracaoLista.vagascarro}}</td>
-          <td>{{configuracaoLista.vagasvan}}</td>
+          <td>{{ conf.inicioexpediente}}</td>
+          <td>{{ conf.fimexpediente }}</td>
+          <td>{{ conf.valorhora }}</td>
+          <td>{{conf.valorminuto}}</td>
+          <td>{{conf.tempoparadesconto}}</td>
+          <td>{{conf.tempodedesconto}}</td>
+          <td>{{conf.gerardesconto}}</td>
+          <td>{{conf.vagasmotos}}</td>
+          <td>{{conf.vagascarro}}</td>
+          <td>{{conf.vagasvan}}</td>
           
           <td>
-            <router-link class="btn btn-editar" :to="{ name: 'Adicionar-Configuracao-editar', query: { id: configuracaoLista.id, form: 'editar' } } ">
+            <router-link class="btn btn-editar" :to="{ name: 'Adicionar-Configuracao-editar', query: { id: conf.id, form: 'editar' } } ">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -93,7 +93,7 @@
 
   import { defineComponent } from 'vue';
   import { configuracao } from '@/model/configuracao';
-  import { ConfiguracaoClient } from '@/client/ConfiguracaoClient';
+  import ConfiguracaoClient from '@/client/ConfiguracaoClient';
   
 
 
@@ -102,8 +102,7 @@
 
     data(){
       return{
-        configuracaoLista: new configuracao(),
-        ConfiguracaoClient: new ConfiguracaoClient(),
+        configuracaoLista: new Array<configuracao>(),
 
         mensagem: {
         ativo: false as boolean,
@@ -114,45 +113,26 @@
       }
     },
     mounted(){
-     /* this.findAll();*/
-      this.findbyId(1);
+      this.findAll();
+   
       
     },
     methods: {
-/*
+
       findAll() {
-      this.ConfiguracaoClient.listAll()
-        .then((sucess) => {
-          this.configuracaoLista = sucess
-          console.log(this.configuracaoLista)
-        })
-        .catch((error :any )=> {
-          console.log(error);
-        });
-    },*/
-
-    findbyId(id: number){
-      this.ConfiguracaoClient.findbyid(1)
-      .then((sucess: configuracao) => {
-          this.configuracaoLista = sucess
-
-          console.log(this.configuracaoLista.vagascarro)
-        })
-        .catch((error :any )=> {
-          this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
-          this.mensagem.titulo = "Error. ";
-          this.mensagem.css = "alert alert-danger alert-dismissible fade show";        
-        });
-       
-    },
-    formatTime(time: number): string {
-      const hour = Math.floor(time / 60).toString().padStart(2, '0');
-      const minute = (time % 60).toString().padStart(2, '0');
-      return  `${hour}:${minute}`;
-    },
+        ConfiguracaoClient.listAll()
+          .then(sucess => {
+              this.configuracaoLista = sucess
+              console.log(this.configuracaoLista)
+          })
+          .catch(error => {
+              console.log(error);
+          }); },  
+    
+  
     }
-  })
+    
+  });
 
 
   
