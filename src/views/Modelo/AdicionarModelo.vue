@@ -8,6 +8,15 @@
             <h1  v-if="form === 'excluir'" class="display-4 custom-text-color">Excluir Modelo</h1>
         </div>
 
+        <div v-if="mensagem.ativo" class="row">
+          <div class="col-md-12 text-start">
+            <div :class="mensagem.css" role="alert">
+              <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+
         <form class="row g-3 d-flex justify-content-center bg-dark">
 
             <div  class="row justify-content-center mt-3">
@@ -132,8 +141,10 @@ export default defineComponent({
       this.marcaclient.listAll()
         .then((sucess: marca[]) => {
           this.marcaLista = sucess;
+          
         })
         .catch((error :any )=> {
+         
           console.log(error);
         });
     
@@ -144,6 +155,10 @@ export default defineComponent({
         .then(sucess => {
           this.modelo = new modelo();
           this.findAll();
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = sucess;
+          this.mensagem.titulo = "Parabens. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
           
         })
         .catch(error => {

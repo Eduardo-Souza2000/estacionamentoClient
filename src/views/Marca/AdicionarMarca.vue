@@ -1,12 +1,23 @@
 <template >
 
     <div class="container ">
-
-        <div class="text-center mb-5">
+      
+      <div class="text-center mb-5">
             <h1 v-if="form === undefined" class="display-4 custom-text-color">Adicionar Marca</h1>
             <h1 v-if="form === 'excluir'" class="display-4 custom-text-color">Excluir Marca</h1>
             <h1 v-if="form === 'editar'" class="display-4 custom-text-color">Editar Marca</h1>
         </div>
+
+        <div v-if="mensagem.ativo" class="row">
+          <div class="col-md-12 text-start">
+            <div :class="mensagem.css" role="alert">
+              <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+
+        
 
         <form class="row g-3 d-flex justify-content-center bg-dark">
             <div class="col-md-4" >
@@ -91,15 +102,22 @@ export default defineComponent({
         this.marcaclient.cadastrar(this.marca)
         .then(sucess => {
           this.marca = new marca();
+
           
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = sucess;
+          this.mensagem.titulo = "Parabens. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
           
+          console.log(this.mensagem.ativo)
+
         })
         .catch(error => {
           this.mensagem.ativo = true;
           this.mensagem.mensagem = error;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
-        });
+});
     },
     findbyId(id: number){
       this.marcaclient.findbyid(id)
@@ -143,6 +161,10 @@ export default defineComponent({
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
+    },
+    fecharMensagem() {
+      this.mensagem.ativo = false;
+      this.$router.push({ name: 'listarmarca' });
     }
   }
 });

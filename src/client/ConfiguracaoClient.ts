@@ -33,6 +33,16 @@ export class ConfiguracaoClient {
         }
     }
 
+    public  async ultimaConfig() : Promise<configuracao>{
+        try{
+            return (await this.axiosClient.get<configuracao> ('/ultima-configuracao')).data
+        }
+        catch(error: any){
+            return Promise.reject(error.response)
+        }
+    }
+    
+
 
     public async cadastrar(configuracao: configuracao) :Promise<string>{
         try {
