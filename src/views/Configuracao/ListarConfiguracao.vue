@@ -34,7 +34,7 @@
         </tr>
       </thead>
 
-      <tbody v-if="configuracaoLista">
+      <tbody>
 
         <tr v-for=" conf in configuracaoLista" :key="conf.id" scope="row">
 
@@ -104,12 +104,7 @@
       return{
         configuracaoLista: new Array<configuracao>(),
 
-        mensagem: {
-        ativo: false as boolean,
-        titulo: "" as string,
-        mensagem: "" as string,
-        css: "" as string
-        }
+        
       }
     },
     mounted(){
@@ -119,7 +114,7 @@
     },
     methods: {
 
-      findAll() {
+       findAll() {
         ConfiguracaoClient.listAll()
           .then(sucess => {
               this.configuracaoLista = sucess
