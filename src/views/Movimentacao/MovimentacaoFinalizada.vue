@@ -4,17 +4,17 @@
         <h1 class="mt-4">Recibo <br> Estacionamento do Semestre</h1>
       
         <div class="row">
-        <div class="col-md-12 text-end">
-            <p class="fw-bold">Número do Recibo: 001</p>
-            <p>Data: 16/06/2023</p>
+            <div class="col-md-12 text-end">
+                <p class="fw-bold">Número do Recibo: 001</p>
+                <p>Data: 16/06/2023</p>
+            </div>
         </div>
-        </div>
-        <!--
-        </div>
+        
+        
         <div class="dashed-line"></div>
+      
 
-
-        <div class="row mt-3 justify-content-start">
+        <div v-if="movimentacao.condutor" class="row mt-3 justify-content-start">
 
             <h5> Dados do Condutor</h5>
 
@@ -30,7 +30,7 @@
                         <p class="col">Telefone: {{ movimentacao.condutor.telefone }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Horas Pagas: {{ movimentacao.tempototalhora }}</p>
+                        <p class="col">Horas Pagas: {{ movimentacao.tempoTotalhora }}</p>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,8 @@
             <div class="dashed-line"></div>
 
         </div>
-
-        <div class="row mt-3 justify-content-start">
+     
+        <div v-if="movimentacao.veiculo" class="row mt-3 justify-content-start">
 
             <h5> Dados do Veiculo</h5>
 
@@ -53,7 +53,7 @@
                         <p>Modelo: {{ movimentacao.veiculo.modelo.nome }} </p>
                     </div>
                     <div class="row"> 
-                        <p>Marca:  {{ movimentacao.veiculo.modelo.marca.nome }}  </p>
+                        <p>Marca:  {{ movimentacao.veiculo.placa }}  </p>
                     </div>
                     <div class="row"> 
                         <p>Tipo do Veiculo: {{ movimentacao.veiculo.tipo }}</p>
@@ -65,7 +65,7 @@
             </div>
 
         </div>
-        
+  
 
         <div class="dashed-line"></div>
 
@@ -80,13 +80,13 @@
                         <p class="col">Hora da Saida: {{ movimentacao.saida }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Tempo de Permanencia: {{ movimentacao.tempomultahora }}</p>
+                        <p class="col">Tempo de Permanencia: {{ movimentacao.tempoTotalhora }}</p>
                     </div>
                     <div class="row">
-                        <p class="col">Minutos apos Horario Comercial: {{ movimentacao.tempomultahora }} </p>
+                        <p class="col">Minutos apos Horario Comercial: {{ movimentacao.tempoMultaMinuto }} </p>
                     </div>
                     <div class="row">
-                        <p class="col"> Tempo para Desconto: {{ movimentacao.tempodesconto }}</p>
+                        <p class="col"> Tempo para Desconto: {{ movimentacao.tempoDesconto }}</p>
                     </div>
                 </div>
             </div>
@@ -95,16 +95,16 @@
 
         <div class="dashed-line"></div>
 
-        <div class="row mt-3">
+        <div v-if="movimentacao.condutor" class="row mt-3">
             <div class="col">
                 <h5> Dados Sobre Desconto </h5>
                 <div class="d-flex flex-column align-items-start">
                     
                     <div class="row">
-                        <p class="col">Horas Acumuladas pelo Condutor: {{ movimentacao.condutor.tempopago }}</p>
+                        <p class="col">Horas Acumuladas pelo Condutor: {{ movimentacao.condutor.tempototal}}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor de Desconto: {{ movimentacao.valordesconto }}</p>
+                        <p class="col"> Valor de Desconto: {{ movimentacao.valorDesconto }}</p>
                     </div>
                 </div>
             </div>
@@ -119,17 +119,17 @@
                 <div class="d-flex flex-column align-items-start">
                     
                     <div class="row">
-                        <p class="col">Valor a Pagar por Tempo Estacionado: {{ movimentacao.valorhora }}</p>
+                        <p class="col">Valor a Pagar por Tempo Estacionado: {{ movimentacao.valorHora }}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor a Pagar por Exceder o horario comercial (MULTA): {{ movimentacao.valormulta }}</p>
+                        <p class="col"> Valor a Pagar por Exceder o horario comercial (MULTA): {{ movimentacao.valorMulta }}</p>
                     </div>
                     <div class="row">
-                        <p class="col"> Valor Desconto: {{ movimentacao.valordesconto }}</p>
+                        <p class="col"> Valor Desconto: {{ movimentacao.valorDesconto }}</p>
                     </div>
 
                     <div class="row">
-                        <h4> Valor Toral a Pagar: {{ movimentacao.valortotal }}</h4>
+                        <h4> Valor Toral a Pagar: {{ movimentacao.valorTotal }}</h4>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                 <router-link to="/Movimentacao" class="btn btn-primary-voltar mt-4 col-6">Voltar</router-link>
             </div>
         </div>
-        -->
+        
     
     </div>
 
@@ -177,13 +177,13 @@ data() {
   return {
       movimentacao: new movimentacao(),
       MovimentacaoClient: new MovimentacaoClient(),
-      modelo: new Array<modelo>(),
+      modelo: new modelo(),
       modeloclient: new ModeloClient(),
       marcaclient: new MarcaClient(),
-      marca: new Array<marca>(),
+      marca: new marca(),
       VeiculoClient: new VeiculoClient(),
-      veiculo: new Array<veiculo>(),
-      condutor: new Array<condutor>(),
+      veiculo: new veiculo(),
+      condutor: new condutor(),
       condutorclient: new condutorclient(),
       mensagem: {
       ativo: false as boolean,
@@ -203,6 +203,7 @@ computed: {
   
 },
 mounted() { 
+
   if (this.id !== undefined)
   {
       this.findbyId(Number(this.id));
@@ -216,7 +217,10 @@ methods: {
   findbyId(id: number){
     this.MovimentacaoClient.findbyid(id)
       .then(sucess => {
+
         this.movimentacao = sucess;
+        this.procuraVeiculo();
+        this.procuraCondutor();            
         
       })
       .catch(error => {
@@ -225,7 +229,56 @@ methods: {
         this.mensagem.titulo = "Error. ";
         this.mensagem.css = "alert alert-danger alert-dismissible fade show";
       });
+  }, procuraVeiculo(){
+        this.VeiculoClient.findbyid(this.movimentacao.id)
+                .then(sucesso => {
+                    this.veiculo = sucesso;
+                    this.modeloclient.findbyid(this.veiculo.id)
+                        .then(sucesso => {
+                            this.modelo = sucesso;
+
+                            this.marcaclient.findbyid(this.modelo.id)
+                                .then(sucesso => {
+                                    this.marca = sucesso;
+                                    
+                                })
+                                .catch(error => {
+                                    this.mensagem.ativo = true;
+                                    this.mensagem.mensagem = error;
+                                    this.mensagem.titulo = "Error. ";
+                                    this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+                                });
+                        })
+                        .catch(error => {
+                            this.mensagem.ativo = true;
+                            this.mensagem.mensagem = error;
+                            this.mensagem.titulo = "Error. ";
+                            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+                        });
+                   
+
+                })
+                    .catch(error => {
+                        this.mensagem.ativo = true;
+                        this.mensagem.mensagem = error;
+                        this.mensagem.titulo = "Error. ";
+                        this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+                    });
+  },
+  procuraCondutor(){
+    this.condutorclient.findbyid(this.movimentacao.id)
+                .then(sucesso => {
+                    this.condutor = sucesso;
+
+                })
+                .catch(error => {
+                    this.mensagem.ativo = true;
+                    this.mensagem.mensagem = error;
+                    this.mensagem.titulo = "Error. ";
+                    this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+                });
   }
+  
 
 
  }

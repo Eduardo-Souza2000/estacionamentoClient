@@ -38,14 +38,15 @@
                   </button>
                   </button>
                 </td>
-                <td>{{ Movimentacao.valortotal }}</td>
-                <td>{{ Movimentacao.valorhora }}</td>
+                <td>{{ Movimentacao.entrada }}</td>
+                <td>{{ Movimentacao.saida }}</td>
                 <td>{{Movimentacao.condutor.nome}}</td>
                 <td>{{ Movimentacao.condutor.cpf }}</td>
                 <td>{{ Movimentacao.veiculo.modelo.nome }}</td>
                 <td>{{ Movimentacao.veiculo.placa }}</td>
                 <td v-if="Movimentacao.ativo "></td>
                 <td v-if="!Movimentacao.ativo ">
+
                   <router-link :to="{ name: 'Recibo', query: { id: Movimentacao.id, form: 'recibo' } } ">
 
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
@@ -103,12 +104,26 @@
           this.MovimentacaoClient.listAll()
             .then((sucess: movimentacao[]) => {
               this.movimentacao = sucess
+             
+              
               console.log(this.movimentacao)
             })
             .catch((error :any )=> {
               console.log(error);
             });
-        }
+        }, 
+        converteTempo(tempo :any){
+              return tempo.reduce( (acc :any,valor :any) => { 
+
+                if (valor == '0'){
+                  valor+= '0';
+                }
+
+                return  acc + ':' + valor
+
+              });
+               
+          },
       }
     });
 

@@ -13,11 +13,11 @@
 
                 <div class="col-md-3" >
                     <label for="inputInicio" class="form-label text-color">Inicio Expediente</label>
-                    <input type="nome" class="form-control" id="inputInicio" v-model="configuracao.inicioexpediente">
+                    <input type="nome" class="form-control" id="inputInicio" v-model="configuracao.inicioExpediente">
                 </div>
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Fim Expediente</label>
-                    <input type="nome" class="form-control" id="inputFim" v-model="configuracao.fimexpediente">
+                    <input type="nome" class="form-control" id="inputFim" v-model="configuracao.fimExpediente">
                 </div>
             </div>
 
@@ -25,12 +25,12 @@
             <div class="row justify-content-center mt-3">
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Valor Hora</label>
-                    <input type="nome" class="form-control" id="inputValorHora" v-model="configuracao.valorhora">
+                    <input type="nome" class="form-control" id="inputValorHora" v-model="configuracao.valorHora">
                 </div>
 
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Valor Minuto Multa</label>
-                    <input type="nome" class="form-control" id="inputValorMulta" v-model="configuracao.valorminuto">
+                    <input type="nome" class="form-control" id="inputValorMulta" v-model="configuracao.valorMinutoMulta">
                 </div>
                 
             </div>
@@ -38,24 +38,24 @@
             <div class="row justify-content-center mt-3">
                 <div class="col-md-3" >
                     <label for="inputInicio" class="form-label text-color">Tempo para Desconto</label>
-                    <input type="nome" class="form-control" id="inputDesconto" v-model="configuracao.tempoparadesconto">
+                    <input type="nome" class="form-control" id="inputDesconto" v-model="configuracao.tempoParaDesconto">
                 </div>
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Tempo de Desconto</label>
-                    <input type="nome" class="form-control" id="inputTempoDeDesconto" v-model="configuracao.tempodedesconto">
+                    <input type="nome" class="form-control" id="inputTempoDeDesconto" v-model="configuracao.tempoDeDesconto">
                 </div>
             </div>
 
             <div class="row justify-content-center mt-3">
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Gerar Desconto</label>
-                    <input type="nome" class="form-control" id="inputGerarDesconto" v-model="configuracao.gerardesconto">
+                    <input type="nome" class="form-control" id="inputGerarDesconto" v-model="configuracao.gerarDesconto">
                 </div>
                 
             
                 <div class="col-md-3" >
                     <label for="inputInicio" class="form-label text-color">Vagas Moto</label>
-                    <input type="nome" class="form-control" id="inputVagasMoto" v-model="configuracao.vagasmotos">
+                    <input type="nome" class="form-control" id="inputVagasMoto" v-model="configuracao.vagasMoto">
                 </div>
 
             </div>
@@ -64,26 +64,27 @@
 
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Vagas Carro</label>
-                    <input type="nome" class="form-control" id="inputVagasCarro" v-model="configuracao.vagascarro">
+                    <input type="nome" class="form-control" id="inputVagasCarro" v-model="configuracao.vagasCarro">
                 </div>
 
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Vagas Van</label>
-                    <input type="nome" class="form-control" id="inputVagasVan" v-model="configuracao.vagasvan">
+                    <input type="nome" class="form-control" id="inputVagasVan" v-model="configuracao.vagasVan">
                 </div>
                 
             </div>
             
             
             <div  v-if="form === undefined"  class="col-12 mb-5 mt-5">
-                <router-link to="/Listar-Configuracao" class="btn btn-success " >Adicionar</router-link>
+                <router-link to="/Listar-Configuracao" class="btn btn-success " @click="onClickCadastrar" >Adicionar</router-link>
+
             </div>
             
 
             <div v-if="form === 'editar'" class="d-flex justify-content-center ">
                 <div class="row ">
                   <div class="col-5">
-                        <router-link to="/Listar-Configuracao" class="btn btn-warning " >Editar</router-link>
+                        <router-link to="/Listar-Configuracao" class="btn btn-warning "  @click="onClickEditar" >Editar</router-link>
                   </div>
                     <div class="col-5">
                         <router-link to="/Listar-Configuracao" class="btn btn-info " >Voltar</router-link>
@@ -164,6 +165,7 @@ export default defineComponent({
         .then(sucess => {
           this.configuracao = sucess;
           
+          
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -189,6 +191,7 @@ export default defineComponent({
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
     }
+    
 
 
   }

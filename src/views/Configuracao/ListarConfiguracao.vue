@@ -36,7 +36,7 @@
 
       <tbody>
 
-        <tr scope="row">
+        <tr v-if="configuracaoLista.ativo" scope="row">
 
           <td >{{ configuracaoLista.id }}</td>
         

@@ -5,17 +5,17 @@ import { condutor } from "@/model/condutor";
 export class movimentacao extends abstractentity{
     veiculo!: veiculo;
     condutor!: condutor;
-    horaatual!: Date;
+    horaAtual!: Date;
     entrada!: Date;
     saida!: Date;
-    tempototalhora!: number;
-    tempototalminuto!: number;
-    tempodesconto!: number;
-    tempomultaminuto!: number;
-    tempomultahora!: number;
-    valordesconto!: number;
-    valormulta!: number;
-    valortotal!:number;
-    valorhora!: number;
-    valorhoramulta!: number;
+    tempoTotalhora!: number;
+    tempoTotalminuto!: number;
+    tempoDesconto!: number;
+    tempoMultaMinuto!: number;
+    tempoMultaHora!: number;
+    valorDesconto!: number;
+    valorMulta!: number;
+    valorTotal!:number;
+    valorHora!: number;
+    valorHoraMulta!: number;
 }
