@@ -27,16 +27,16 @@
             
             
             <div v-if="form === undefined" class="col-12">
-                <router-link to="/listarmarca" class="btn btn-success " @click="onClickCadastrar" >Adicionar</router-link>
+                <button  class="btn btn-success " @click="onClickCadastrar" >Adicionar</button>
             </div>
             
             <div v-if="form === 'excluir'" class="d-flex justify-content-center ">
                 <div class="row ">
                     <div class="col-5">
-                        <router-link to="/listarmarca" class="btn btn-primary "  @click="onClickExcluir" >Excluir</router-link>
+                        <button  class="btn btn-primary "  @click="onClickExcluir" >Excluir</button>
                     </div>
                     <div class="col-5">
-                        <router-link to="/listarmarca" class="btn btn-info " >Voltar</router-link>
+                      <router-link to="/listarmarca" class="btn btn-info " >Voltar</router-link>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
             <div v-if="form === 'editar'" class="d-flex justify-content-center ">
                 <div class="row ">
                   <div class="col-5">
-                        <router-link to="/listarmarca" class="btn btn-warning"  @click="onClickEditar" >Editar</router-link>
+                        <button class="btn btn-warning"  @click="onClickEditar" >Editar</button>
                   </div>
                     <div class="col-5">
                         <router-link to="/listarmarca" class="btn btn-info " >Voltar</router-link>
@@ -108,10 +108,11 @@ export default defineComponent({
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
           this.mensagem.css = "alert alert-success alert-dismissible fade show";
-          
-          console.log(this.mensagem.ativo)
 
-        })
+          setTimeout(() => {
+            this.$router.push({ name: 'listarmarca' });
+           }, 50000); // Transição para a outra página após 2 segundos (ajuste o valor conforme necessário)
+    })
         .catch(error => {
           this.mensagem.ativo = true;
           this.mensagem.mensagem = error;
@@ -140,6 +141,9 @@ export default defineComponent({
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
           this.mensagem.css = "alert alert-success alert-dismissible fade show";
+          setTimeout(() => {
+            this.$router.push({ name: 'listarmarca' });
+           }, 50000); // Transição para a outra página após 2 segundos (ajuste o valor conforme necessário)
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -152,8 +156,15 @@ export default defineComponent({
       this.marcaclient.delete(this.marca.id)
         .then(sucess => {
           this.marca = new marca()
+
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = sucess;
+          this.mensagem.titulo = "Parabens. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
+          setTimeout(() => {
+            this.$router.push({ name: 'listarmarca' });
+           }, 50000); // Transição para a outra página após 2 segundos (ajuste o valor conforme necessário)
           
-          this.$router.push({ name: 'listarmarca' });
         })
         .catch(error => {
           this.mensagem.ativo = true;

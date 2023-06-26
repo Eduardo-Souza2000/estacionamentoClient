@@ -27,20 +27,14 @@
   
         </thead>
   
-        <tbody>
+        <tbody v-for="entrada in movimentacaoLista" :key="entrada.id" >
   
-          <tr scope="row">
-            <td>Eduardo</td>
-            <td>RHS 8648</td>
-            <td>01/06/2023 10:08:01</td>
-            <!--<td>
-              <button class="btn bg-warning" id="sairButton">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-                </svg>
-                Sair
-              </button>
-            </td>-->
+          <tr v-if="entrada.ativo"  scope="row">
+
+            <td>{{entrada.condutor.nome}}</td>
+            <td>{{entrada.veiculo.placa}}</td>
+            <td>{{entrada.entrada}}</td>
+            
             <td>
               <router-link to="/Recibo" class="btn bg-warning" id="sairButton">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
@@ -61,12 +55,89 @@
   </template>
   
   <script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import { movimentacao } from '@/model/movimentacao';
+import { MovimentacaoClient } from '@/client/MovimentacaoClient';
+import { condutorclient } from '@/client/condutorclient';
+import {condutor} from '@/model/condutor';
+import { MarcaClient } from '@/client/MarcaClient';
+import { marca } from '@/model/marca';
+import { VeiculoClient } from '@/client/VeiculoClient';
+import { veiculo } from '@/model/veiculo';
+import { ModeloClient } from '@/client/ModeloClient';
+import { modelo } from '@/model/modelo';
+
+export default defineComponent({ 
+    name: 'MovimentacaoFormulario',
+
+data() {
+  return {
+      movimentacaoLista: new Array<movimentacao>(),
+      MovimentacaoClient: new MovimentacaoClient(),
+      modelo: new modelo(),
+      modeloclient: new ModeloClient(),
+      marcaclient: new MarcaClient(),
+      marca: new marca(),
+      VeiculoClient: new VeiculoClient(),
+      veiculo: new veiculo(),
+      condutor: new condutor(),
+      condutorclient: new condutorclient(),
+      mensagem: {
+      ativo: false as boolean,
+      titulo: "" as string,
+      mensagem: "" as string,
+      css: "" as string
+    }
+  }
+},
+computed: {
+  id () { 
+    return this.$route.query.id
+  },
+  form () {
+    return this.$route.query.form
+  }
   
-    
+},
+mounted() { 
+
+  this.findAll();
+
+
+  
+},
+methods: {
+  findAll() {
+          this.MovimentacaoClient.listAll()
+            .then((sucess: movimentacao[]) => {
+              this.movimentacaoLista = sucess
+               
+              console.log(this.movimentacaoLista)
+              
+            })
+            .catch((error :any )=> {
+              this.mensagem.ativo = true;
+              this.mensagem.mensagem = error;
+              this.mensagem.titulo = "Error. ";
+              this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+              console.log(error);
+            });
+        }, 
   
   
-  
-  </script>
+
+
+ }
+
+
+
+ })
+
+
+
+</script>
   
   <style scoped>
   

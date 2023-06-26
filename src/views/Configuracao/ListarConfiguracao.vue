@@ -120,32 +120,13 @@
           .then(sucess => {
               
               this.configuracaoLista = sucess;
-              this.configuracaoLista.fimExpediente = this.converteTempo(sucess.fimExpediente);
-              this.configuracaoLista.inicioExpediente = this.converteTempo(sucess.inicioExpediente);
-              this.configuracaoLista.tempoParaDesconto = this.converteTempo(sucess.tempoParaDesconto);
-              this.configuracaoLista.tempoDeDesconto = this.converteTempo(sucess.tempoDeDesconto);
-
-
-              //console.log(sucess.fimExpediente);
+             
 
           })
           .catch(error => {
               console.log(error);
           }); 
-        },
-
-          converteTempo(tempo :any){
-              return tempo.reduce( (acc :any,valor :any) => { 
-
-                if (valor == '0'){
-                  valor+= '0';
-                }
-
-                return  acc + ':' + valor
-
-              });
-               
-          },
+        }
 
 
     
