@@ -59,9 +59,9 @@ export class MovimentacaoClient {
         }
     }
 
-    public async finalizar (id: number, movimentacao: movimentacao) :Promise<string>{
+    public async finalizar (id: number) :Promise<string>{
         try {
-            return (await this.axiosClient.put<string>(`/finalizar/${id}`, movimentacao)).data
+            return (await this.axiosClient.put<string>(`/finalizar/${id}`)).data
             
         } catch (error: any) {
             return Promise.reject(error.response)   

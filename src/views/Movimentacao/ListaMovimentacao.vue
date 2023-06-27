@@ -107,7 +107,7 @@
           this.MovimentacaoClient.listAll()
             .then((sucess: movimentacao[]) => {
               this.movimentacao = sucess
-             
+              
               
               
               console.log(this.movimentacao)

@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "inputmask": "^5.0.8",
     "luxon": "^3.3.0",
+    "moment": "^2.29.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
@@ -26,7 +27,7 @@
     "@types/luxon": "^3.3.0",
     "@vue/cli": "^5.0.8",
     "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-router": "^4.1.2",
+    "@vue/cli-plugin-router": "^5.0.8",
     "@vue/cli-plugin-typescript": "^4.5.19",
     "@vue/cli-service": "^5.0.8",
     "bootstrap-icons": "^1.10.5",
