@@ -246,14 +246,14 @@ methods: {
         this.mensagem.css = "alert alert-danger alert-dismissible fade show";
       });
   }, procuraVeiculo(){
-        this.VeiculoClient.findbyid(this.movimentacao.id)
+        this.VeiculoClient.findbyid(this.movimentacao.veiculo.id)
                 .then(sucesso => {
                     this.veiculo = sucesso;
-                    this.modeloclient.findbyid(this.veiculo.id)
+                    this.modeloclient.findbyid(this.veiculo.modelo.id)
                         .then(sucesso => {
                             this.modelo = sucesso;
 
-                            this.marcaclient.findbyid(this.modelo.id)
+                            this.marcaclient.findbyid(this.modelo.marca.id)
                                 .then(sucesso => {
                                     this.marca = sucesso;
                                     
@@ -282,7 +282,7 @@ methods: {
                     });
   },
   procuraCondutor(){
-    this.condutorclient.findbyid(this.movimentacao.id)
+    this.condutorclient.findbyid(this.movimentacao.condutor.id)
                 .then(sucesso => {
                     this.condutor = sucesso;
 

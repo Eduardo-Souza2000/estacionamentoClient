@@ -23,28 +23,38 @@
   
         <tbody >
   
-          <tr scope="row">
+          <tr  scope="row">
 
-            <td > 
+            <td v-if="movimentacao.condutor"> 
                 <td>Nome: {{ movimentacao.condutor.nome}}</td><br>
                 <td>Cpf: {{ movimentacao.condutor.cpf }} </td><br>
                 <td>Telefone: {{ movimentacao.condutor.telefone}}</td>
             </td>
-            <td > 
-                <td>Placa: {{ movimentacao.veiculo}}</td><br>
+
+            <td v-if="movimentacao.veiculo" > 
+                <td>Placa: {{ movimentacao.veiculo.placa}}</td><br>
+                <td>Modelo: {{ movimentacao.veiculo.modelo.nome}}</td><br>
+                <td>Marca: {{ movimentacao.veiculo.modelo.marca.nome}}</td><br>
+                <td>Tipo: {{ movimentacao.veiculo.tipo}}</td><br>
+                <td>Ano: {{ movimentacao.veiculo.ano}}</td><br>
             </td>
-            <td>{{movimentacao.entrada}}</td>
+            <td>
+              <td>Entrada: {{movimentacao.entrada}}</td>
+              
+            </td>
             
             
           </tr>
 
-          <div class="col-12 mt-4 mb-4">
-            <button  class="btn btn-danger btn-lg col-6" @click="onClickRegistraSaida()" >Registrar Saida</button>
-          </div>
+          
   
         </tbody>
   
-  
+        <div class="col-12 mt-4 mb-4">
+          <router-link class="btn btn-danger btn-lg col-6" :to="{ name: 'Recibo', query: { id: movimentacao.id, form: 'recibo' } } "  @click="onClickRegistraSaida()"> Registrar Saida</router-link>
+            
+        </div>
+
       </table>
   
     </div>
@@ -92,18 +102,19 @@ data() {
 computed: {
   id () { 
     return this.$route.query.id
-  },
-  form () {
-    return this.$route.query.form
   }
   
 },
 mounted() { 
 
   
-    this.findbyId(Number(this.id));
+    if (this.id !== undefined)
+    {
+        this.findbyId(Number(this.id));
+        
+    };
+
    
-  console.log(this.id)
   
 },
 methods: {
@@ -113,12 +124,9 @@ methods: {
       .then(sucess => {
 
         this.movimentacao = sucess;
-        console.log(this.movimentacao)
-
-        console.log(this.movimentacao.veiculo.id)
-        console.log(this.movimentacao.condutor.id)
-        this.procuraVeiculo(this.movimentacao.veiculo.id);
-        this.procuraCondutor(this.movimentacao.condutor.id);   
+        this.procuraVeiculo();
+        this.procuraCondutor();
+           
 
 
       })
@@ -128,15 +136,15 @@ methods: {
         this.mensagem.titulo = "Error. ";
         this.mensagem.css = "alert alert-danger alert-dismissible fade show";
       });
-  }, procuraVeiculo( id: number){
-        this.VeiculoClient.findbyid(id)
+  },procuraVeiculo(){
+        this.VeiculoClient.findbyid(this.movimentacao.veiculo.id)
                 .then(sucesso => {
                     this.veiculo = sucesso;
-                    this.modeloclient.findbyid(this.veiculo.id)
+                    this.modeloclient.findbyid(this.veiculo.modelo.id)
                         .then(sucesso => {
                             this.modelo = sucesso;
 
-                            this.marcaclient.findbyid(this.modelo.id)
+                            this.marcaclient.findbyid(this.modelo.marca.id)
                                 .then(sucesso => {
                                     this.marca = sucesso;
                                     
@@ -164,10 +172,11 @@ methods: {
                         this.mensagem.css = "alert alert-danger alert-dismissible fade show";
                     });
   },
-  procuraCondutor(id: number){
-    this.condutorclient.findbyid(id)
+  procuraCondutor(){
+    this.condutorclient.findbyid(this.movimentacao.condutor.id)
                 .then(sucesso => {
                     this.condutor = sucesso;
+                    console.log(this.condutor)
 
                 })
                 .catch(error => {
