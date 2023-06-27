@@ -111,11 +111,11 @@ export default defineComponent({
 
           setTimeout(() => {
             this.$router.push({ name: 'listarmarca' });
-           }, 50000); // Transição para a outra página após 2 segundos (ajuste o valor conforme necessário)
+           }, 3000); // Transição para a outra página após 2 segundos (ajuste o valor conforme necessário)
     })
         .catch(error => {
           this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
+          this.mensagem.mensagem = error.data;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
 });

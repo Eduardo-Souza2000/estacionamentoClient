@@ -46,7 +46,7 @@ export class ConfiguracaoClient {
 
     public async cadastrar(configuracao: configuracao) :Promise<string>{
         try {
-            return (await this.axiosClient.post<string>('',configuracao)).data
+            return (await this.axiosClient.post('',configuracao)).data
         } catch (error: any) {
             return Promise.reject(error.response)   
         }

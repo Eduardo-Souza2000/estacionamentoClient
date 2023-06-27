@@ -1,6 +1,15 @@
 <template >
 
     <div class="container ">
+      
+      <div v-if="mensagem.ativo" class="row">
+          <div class="col-md-12 text-start">
+            <div :class="mensagem.css" role="alert">
+              <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
 
         <div class="text-center mb-5">
             <h1 v-if="form === undefined" class="display-4 custom-text-color">Adicionar Configuração</h1>
@@ -36,10 +45,7 @@
             </div>
 
             <div class="row justify-content-center mt-3">
-                <div class="col-md-3" >
-                    <label for="inputInicio" class="form-label text-color">Tempo para Desconto</label>
-                    <input type="nome" class="form-control" id="inputDesconto" v-model="configuracao.tempoParaDesconto">
-                </div>
+                
                 <div class="col-md-3" >
                     <label for="inputPlaca" class="form-label text-color">Tempo de Desconto</label>
                     <input type="nome" class="form-control" id="inputTempoDeDesconto" v-model="configuracao.tempoDeDesconto">

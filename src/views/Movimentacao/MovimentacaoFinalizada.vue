@@ -119,6 +119,22 @@
                 <div class="d-flex flex-column align-items-start">
                     
                     <div class="row">
+                        <p class="col">Valor por Hora: {{ movimentacao.valorHora }}</p>
+                    </div>
+
+                    <div class="row">
+                        <p class="col">Valor por Minuto Multa: {{ movimentacao.valorHoraMulta }}</p>
+                    </div>
+
+                    <div class="row">
+                        <p class="col">Valor Desconto: {{ movimentacao.valorDesconto }}</p>
+                    </div>
+
+                    <div class="row">
+                        <p class="col">Valor a pagar da Multa: {{ movimentacao.valorMulta }}</p>
+                    </div>
+
+                    <div class="row">
                         <p class="col">Valor a Pagar por Tempo Estacionado: {{ movimentacao.valorHora }}</p>
                     </div>
                     <div class="row">

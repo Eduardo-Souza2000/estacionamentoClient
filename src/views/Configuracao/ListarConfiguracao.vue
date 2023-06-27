@@ -23,7 +23,6 @@
           <th>Fim expediente </th>
           <th>Valor Hora</th>
           <th>Valor Minuto Multa</th>
-          <th>Tempo para Desconto </th>
           <th>Tempo de Desconto </th>
           <th>Gerar Desconto </th>
           <th>Vagas Moto </th>
@@ -50,7 +49,7 @@
           <td>{{ configuracaoLista.fimExpediente }}</td>
           <td>{{ configuracaoLista.valorHora }}</td>
           <td>{{configuracaoLista.valorMinutoMulta}}</td>
-          <td>{{configuracaoLista.tempoParaDesconto}}</td>
+          
           <td>{{configuracaoLista.tempoDeDesconto}}</td>
           <td>{{configuracaoLista.gerarDesconto}}</td>
           <td>{{configuracaoLista.vagasMoto}}</td>

@@ -9,6 +9,15 @@
             <h1  v-if="form === 'excluir'" class="display-4 custom-text-color">Excluir Veiculo</h1>
         </div>
 
+        <div v-if="mensagem.ativo" class="row">
+          <div class="col-md-12 text-start">
+            <div :class="mensagem.css" role="alert">
+              <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+
         <form class="row g-3 d-flex justify-content-center bg-dark">
             <div class="row">
                 <div class="col-md-3" >
